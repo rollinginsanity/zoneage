@@ -89,7 +89,7 @@ class Config:
             if not element_exists:
                 print("CONFIG: Optional parameter "+config_element["name"]+" not found.")
 
-            # And now set the item as a property on the config class. 
+            # And now set the item as a property on the config class.
             setattr(self,config_element["name"], config_file_value)
 
 
