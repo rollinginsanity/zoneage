@@ -1,0 +1,17 @@
+{
+  "config_elements": [
+    {
+      "name": "db_file",
+      "type": "string",
+      "description": "The path that the database file will be create and reside at.",
+      "sub_elements": false,
+      "mandatory": true
+    },
+    {
+      "name": "user_name",
+      "type": "string",
+      "mandatory": false,
+      "sub_elements": false
+    }
+  ]
+}
