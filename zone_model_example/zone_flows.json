@@ -1,0 +1,19 @@
+{
+  "zone_flows": [
+    {
+      "start_zone": "Internet",
+      "end_zone": "DMZ",
+      "status": "Allowed"
+    },
+    {
+      "start_zone": "DMZ",
+      "end_zone": "Internal",
+      "status": "Allowed"
+    },
+    {
+      "start_zone": "Internet",
+      "end_zone": "Internal",
+      "status": "Not Allowed"
+    }
+  ]
+}

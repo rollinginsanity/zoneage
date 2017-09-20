@@ -18,4 +18,3 @@ class Zoneage:
         self.db = DB(script_path+"/../"+self.config.db_file)
 
 
-

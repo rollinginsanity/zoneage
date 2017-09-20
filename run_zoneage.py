@@ -1,6 +1,6 @@
 from zoneage import Zoneage
 import json
-from zoneage.models import Zone
+from zoneage.models import Zone, Node
 
 
 zoneage = Zoneage()
@@ -21,3 +21,18 @@ for zone_data in zones:
     zone.load_data(zone_data)
     zoneage.db.session.add(zone)
     zoneage.db.session.commit()
+
+
+with open("zone_model_example/nodes.json") as nodes_json:
+    nodes_data = json.load(nodes_json)
+
+nodes = nodes_data["nodes"]
+
+for node_data in nodes:
+    assoc_zone = zoneage.db.session.query(Zone).filter(Zone.zone_name == node_data["node_zone"]).first()
+    node_data["zone_id"] = assoc_zone.id
+    node = Node()
+    node.load_data(node_data)
+    zoneage.db.session.add(node)
+    zoneage.db.session.commit()
+

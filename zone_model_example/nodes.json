@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    {
+      "node_name": "Web Server",
+      "node_zone": "DMZ",
+      "node_id": "AUTO"
+    }
+  ]
+}

@@ -40,7 +40,7 @@ class Zone(DB.base):
     zone_abstraction = Column(String(100))
 
     # The name of the network zone.
-    zone_name = Column(String(100), nullable=False)
+    zone_name = Column(String(100), nullable=False, unique=True)
 
     # A description of the Zone.
     zone_description = Column(Text)
@@ -71,10 +71,6 @@ class Zone(DB.base):
         self.trust_level = zone_dict["trust_level"]
 
         self.zone_name = zone_dict["zone_name"]
-
-
-
-
 
 
 class Node(DB.base):
@@ -110,6 +106,17 @@ class Node(DB.base):
 
     # Information Assets on the node.
     information_assets = relationship("InformationAsset", secondary=info_asset_node_assoc_table, back_populates="nodes_present_on")
+
+    def load_data(self, node_dict):
+
+        if node_dict["node_id"] == "AUTO":
+            self.node_id = next(node_id_gen)
+        else:
+            self.node_id = node_dict["node_id"]
+
+        self.node_name = node_dict["node_name"]
+
+        self.zone_id = node_dict["zone_id"]
 
 
 class Flow(DB.base):

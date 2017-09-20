@@ -24,22 +24,5 @@
       "zone_description": "Where we store the $$$ and the secretz.",
       "trust_level": 50
     }
-  ],
-  "zone_flows": [
-    {
-      "start_zone": "Internet",
-      "end_zone": "DMZ",
-      "status": "Allowed"
-    },
-    {
-      "start_zone": "DMZ",
-      "end_zone": "Internal",
-      "status": "Allowed"
-    },
-    {
-      "start_zone": "Internet",
-      "end_zone": "Internal",
-      "status": "Not Allowed"
-    }
   ]
 }
