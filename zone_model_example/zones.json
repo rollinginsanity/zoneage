@@ -1,0 +1,45 @@
+{
+  "zones": [
+    {
+      "zone_id": "AUTO",
+      "zone_name": "Internet",
+      "zone_abstraction": "logical",
+      "zone_type": "Public Network",
+      "zone_description": "The nasty, nasty internet.",
+      "trust_level": 10
+    },
+    {
+      "zone_id": "AUTO",
+      "zone_name": "DMZ",
+      "zone_abstraction": "Logical",
+      "zone_type": "Internet facing DMZ.",
+      "zone_description": "Where we host edge services and stuff.",
+      "trust_level": 30
+    },
+    {
+      "zone_id": "AUTO",
+      "zone_name": "Internal",
+      "zone_abstraction": "Logical",
+      "zone_type": "Our soft underbelly.",
+      "zone_description": "Where we store the $$$ and the secretz.",
+      "trust_level": 50
+    }
+  ],
+  "zone_flows": [
+    {
+      "start_zone": "Internet",
+      "end_zone": "DMZ",
+      "status": "Allowed"
+    },
+    {
+      "start_zone": "DMZ",
+      "end_zone": "Internal",
+      "status": "Allowed"
+    },
+    {
+      "start_zone": "Internet",
+      "end_zone": "Internal",
+      "status": "Not Allowed"
+    }
+  ]
+}
